@@ -37,13 +37,29 @@ Shows current version of ppurge.
    ./ppurge_setup.sh
    ```
 
-
-## Troubleshooting (PATH issues)
-if the command is not found, add this to your `.bashrc` (or `.zshrc`):
+### Issues after update?
+if `ppurge --version` still shows the old version after a refresh, it's likely a **PATH priority**
+or **caching** issue.
+1. **Clear the shell cache**:
+Your terminal might still remember the old location of the script. Run this to reset it:
+```bash
+hash -r
+```
+2. **Check your PATH**:
+Ensure your local bin directory is at the beginning of your `$PATH`. Add this to your ``.bashrc``:
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
 ```
-### Then save and run: ```source .bashrc``` (or `source .zshrc`)
+Then apply the changes:
+```bash
+source .bashrc
+```
+3. **Remove old global versions**:
+if you previously installed ``ppurge`` using ``sudo``, the old version in ``/usr/local/bin`` might be
+overriding your local one. Remove it:
+```bash
+sudo rm /usr/local/bin/ppurge
+```
 
 ## Requirements
 * Python 3.11 or higher
