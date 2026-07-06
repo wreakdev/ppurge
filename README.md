@@ -29,7 +29,7 @@ Shows current version of ppurge.
 ## Setup
 1. Clone this repo
    ```bash
-   git clone https://github.com/wpxq/ppurge
+   git clone https://github.com/wreakdev/ppurge
    ```
 2. Run the provided installation bash script:
    ```bash
